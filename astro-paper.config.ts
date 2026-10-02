@@ -16,13 +16,11 @@ export default defineAstroPaperConfig({
   },
   posts: {
     perPage: 6,
-    perIndex: 6,
     scheduledPostMargin: 15 * 60 * 1000,
   },
   features: {
     lightAndDarkMode: true,
     dynamicOgImage: true,
-    showArchives: true,
     showBackButton: true,
     editPost: {
       enabled: true,
@@ -30,7 +28,6 @@ export default defineAstroPaperConfig({
       // https://github.com/ming6ao/ming6ao.github.io/edit/main/src/content/posts/<file>
       url: "https://github.com/ming6ao/ming6ao.github.io/edit/main/",
     },
-    search: "pagefind",
   },
   // Add more entries by matching an icon name in src/assets/icons/socials/.
   // Example: { name: "mail", url: "mailto:you@example.com" }

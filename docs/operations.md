@@ -19,16 +19,15 @@ lock file exactly.
 ## Building and previewing
 
 ```bash
-npm run build     # type-check, build into dist/, generate the search index
+npm run build     # type-check and build into dist/
 npm run preview   # serve the production build at http://localhost:4321
 ```
 
-`npm run build` runs `astro check` for type checking, then `astro build`, then
-Pagefind to build the search index. The `dist/` directory and the generated
-`public/pagefind` are ignored by Git; the site is built during deployment.
+`npm run build` runs `astro check` for type checking, then `astro build`, which
+writes the static site to `dist/`. That directory is ignored by Git; the site is
+built during deployment.
 
-The development server hides drafts but shows future-dated posts. Search only
-covers pages from the last build, so run a build once if the search page is empty.
+The development server hides drafts but shows future-dated posts.
 
 Run `npm run sync` to regenerate the Astro content types after changing a
 collection schema.
@@ -68,13 +67,13 @@ Most settings live in `astro-paper.config.ts`.
 
 ### Posts and features
 
-`posts.perPage` and `posts.perIndex` control how many posts appear per page and
-on the home page. `posts.scheduledPostMargin` sets the window in milliseconds
-within which a future-dated post becomes visible.
+`posts.perPage` controls how many posts appear on each page of the home page.
+`posts.scheduledPostMargin` sets the window in milliseconds within which a
+future-dated post becomes visible.
 
 `features` toggles `lightAndDarkMode`, `dynamicOgImage` (a generated social image
-per post), `showArchives`, `showBackButton`, `search`, and `editPost`. The
-`editPost.url` value is prefixed to each post's path to build its "Edit page" link.
+per post), `showBackButton`, and `editPost`. The `editPost.url` value is prefixed
+to each post's path to build its "Edit page" link.
 
 ### Social and share links
 
@@ -100,10 +99,14 @@ code blocks, and math display.
 
 ### Navigation and wording
 
-Header links live in `src/components/Header.astro`. To add a section, create the
-page under `src/pages/`, add a label to `src/i18n/lang/en.ts` under `nav`, and add
-an entry in `Header.astro` beside the existing links. All other interface text,
-including button labels and accessibility strings, is in the same translation file.
+The header holds only the site name and the theme toggle, so there is nothing to
+configure there. To add a section, create the page under `src/pages/`, add a label
+to `src/i18n/lang/en.ts`, and add a link in `src/components/Header.astro` beside
+the theme button. All interface text, including button labels and accessibility
+strings, is in that translation file.
+
+The site deliberately has no search, tags, or archive pages. Posts are listed on
+the home page, newest first, with pagination.
 
 ### Environment variables
 
@@ -173,8 +176,6 @@ Node versions are declared in three places and should be raised together:
 - **Retire a post.** Set `draft: true`; the file and its history remain.
 - **Rename a post.** This changes its URL and breaks existing links. Prefer adding
   a redirect over renaming something already shared.
-- **Keep tags consistent.** Each unique tag creates a page, so prefer a handful of
-  broad topics over many near-duplicates.
 
 ## Troubleshooting
 
@@ -195,7 +196,7 @@ push.
 clean checkout. Reproduce with:
 
 ```bash
-rm -rf node_modules dist .astro public/pagefind
+rm -rf node_modules dist .astro
 npm ci && npm run build
 ```
 

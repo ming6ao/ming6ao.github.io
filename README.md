@@ -31,7 +31,7 @@ Node.js 22.12.0 or newer is required.
 | Command                | What it does                                                      |
 | ---------------------- | ----------------------------------------------------------------- |
 | `npm run dev`          | Start the development server with hot reload.                     |
-| `npm run build`        | Type-check, build into `dist/`, and generate the search index.    |
+| `npm run build`        | Type-check and build the site into `dist/`.                       |
 | `npm run preview`      | Serve the production build locally.                               |
 | `npm run lint`         | Run ESLint.                                                       |
 | `npm run format`       | Rewrite files with Prettier.                                      |
@@ -51,12 +51,10 @@ mirrors what the automated checks and the deployment do.
 ├── docs/                       # documentation
 ├── public/                     # static files served as-is
 ├── src/
-│   ├── content/
-│   │   ├── pages/about.md      # the About page
-│   │   └── posts/              # one file per article, this is where you write
+│   ├── content/posts/          # one file per article, this is where you write
 │   ├── components/             # reusable interface pieces
 │   ├── layouts/                # page shells
-│   ├── pages/                  # routes: home, posts, tags, archives, search, feed
+│   ├── pages/                  # routes: home, post pages, feed, generated images
 │   └── styles/                 # theme colors and typography
 ├── astro-paper.config.ts       # site title, author, social links, features
 └── astro.config.ts             # build configuration and Markdown pipeline

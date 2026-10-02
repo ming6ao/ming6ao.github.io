@@ -4,10 +4,8 @@ import PostLayout from "@/layouts/PostLayout.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import Datetime from "@/components/Datetime.astro";
-import Tag from "@/components/Tag.astro";
 import { getPostSlug, getPostUrl } from "@/utils/getPostPaths";
 import { getSortedPosts } from "@/utils/getSortedPosts";
-import { slugifyStr } from "@/utils/slugify";
 import { toTransitionName } from "@/utils/toTransitionName";
 import EditPost from "./_components/EditPost.astro";
 import ShareLinks from "./_components/ShareLinks.astro";
@@ -69,7 +67,6 @@ const {
   pubDatetime,
   modDatetime,
   timezone,
-  tags,
   hideEditPost,
 } = post.data;
 
@@ -111,7 +108,6 @@ const ogImage = ogImageUrl
   <main
     id="main-content"
     class:list={["app-layout", { "mt-8": !config.features.showBackButton }]}
-    data-pagefind-body
   >
     <h1
       style={{ viewTransitionName: toTransitionName(post.id) }}
@@ -150,10 +146,6 @@ const ogImage = ogImageUrl
     <EditPost class="sm:hidden" {hideEditPost} {post} />
 
     <BackToTopButton />
-
-    <ul class="mt-4 mb-8 flex flex-wrap gap-4 sm:my-8">
-      {tags.map(tag => <Tag tag={slugifyStr(tag)} tagName={tag} size="sm" />)}
-    </ul>
 
     <ShareLinks />
 

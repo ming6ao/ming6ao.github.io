@@ -29,10 +29,7 @@ export default defineConfig({
     // Keep this first so it can extend the markdown processor set up below.
     mermaid({ autoTheme: true }),
     mdx(),
-    sitemap({
-      filter: page =>
-        config.features?.showArchives !== false || !page.endsWith("/archives/"),
-    }),
+    sitemap(),
   ],
   i18n: {
     locales: ["en"],

@@ -10,8 +10,6 @@ the URL, so name files with lowercase words separated by hyphens.
 title: "Scaled Dot-Product Attention, Step by Step"
 pubDatetime: 2026-10-01T19:00:00-07:00
 description: "A worked walkthrough of scaled dot-product attention with a minimal PyTorch implementation."
-tags: ["transformers", "attention", "math"]
-featured: false
 draft: false
 ---
 ```
@@ -24,20 +22,18 @@ skeleton from `.vscode/blog.code-snippets`.
 
 ## Frontmatter reference
 
-| Field          | Type     | Required | Description                                                                |
-| -------------- | -------- | -------- | -------------------------------------------------------------------------- |
-| `title`        | string   | Yes      | Post title, used in the browser tab, cards, the feed, and social previews. |
-| `description`  | string   | Yes      | One or two sentences for search results and summaries.                     |
-| `pubDatetime`  | date     | Yes      | Publication timestamp as an ISO 8601 string with an offset.                |
-| `modDatetime`  | date     | No       | Last update. When later than `pubDatetime`, an "Updated" label appears.    |
-| `tags`         | string[] | No       | Topic labels. Defaults to `["others"]`. Each tag gets its own page.        |
-| `featured`     | boolean  | No       | Pins the post to the top of the home page.                                 |
-| `draft`        | boolean  | No       | Excludes the post from every build.                                        |
-| `author`       | string   | No       | Defaults to the site author.                                               |
-| `ogImage`      | image    | No       | Overrides the generated social preview image.                              |
-| `canonicalURL` | string   | No       | Set when the post was first published elsewhere.                           |
-| `hideEditPost` | boolean  | No       | Hides the "Edit page" link for this post.                                  |
-| `timezone`     | string   | No       | Overrides the display timezone for this post's dates.                      |
+| Field          | Type    | Required | Description                                                                |
+| -------------- | ------- | -------- | -------------------------------------------------------------------------- |
+| `title`        | string  | Yes      | Post title, used in the browser tab, cards, the feed, and social previews. |
+| `description`  | string  | Yes      | One or two sentences for search results and summaries.                     |
+| `pubDatetime`  | date    | Yes      | Publication timestamp as an ISO 8601 string with an offset.                |
+| `modDatetime`  | date    | No       | Last update. When later than `pubDatetime`, an "Updated" label appears.    |
+| `draft`        | boolean | No       | Excludes the post from every build.                                        |
+| `author`       | string  | No       | Defaults to the site author.                                               |
+| `ogImage`      | image   | No       | Overrides the generated social preview image.                              |
+| `canonicalURL` | string  | No       | Set when the post was first published elsewhere.                           |
+| `hideEditPost` | boolean | No       | Hides the "Edit page" link for this post.                                  |
+| `timezone`     | string  | No       | Overrides the display timezone for this post's dates.                      |
 
 ## URLs, drafts, and scheduling
 

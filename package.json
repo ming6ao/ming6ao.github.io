@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro check && astro build && pagefind --site dist && cp -r dist/pagefind public/",
+    "build": "astro check && astro build",
     "preview": "astro preview",
     "sync": "astro sync",
     "astro": "astro",
@@ -39,14 +39,12 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.9",
-    "@pagefind/default-ui": "^1.5.2",
     "@shikijs/transformers": "^4.3.0",
     "@tailwindcss/typography": "^0.5.20",
     "@types/lodash.kebabcase": "^4.1.9",
     "@typescript-eslint/parser": "^8.62.0",
     "eslint": "^10.6.0",
     "eslint-plugin-astro": "^2.1.1",
-    "pagefind": "^1.5.2",
     "prettier": "3.9.3",
     "prettier-plugin-astro": "0.14.1",
     "prettier-plugin-tailwindcss": "^0.8.0",
