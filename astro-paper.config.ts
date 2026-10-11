@@ -4,7 +4,7 @@ export default defineAstroPaperConfig({
   site: {
     // User site served at the domain root, so no base path is needed.
     url: "https://ming6ao.github.io",
-    title: "Ming6ao",
+    title: "ming6ao",
     description:
       "Technical writing on artificial intelligence, machine learning, and the systems that run them.",
     author: "Ming Gao",
@@ -19,7 +19,7 @@ export default defineAstroPaperConfig({
     scheduledPostMargin: 15 * 60 * 1000,
   },
   features: {
-    lightAndDarkMode: true,
+    lightAndDarkMode: false,
     dynamicOgImage: true,
     showBackButton: true,
     editPost: {
@@ -29,9 +29,10 @@ export default defineAstroPaperConfig({
       url: "https://github.com/ming6ao/ming6ao.github.io/edit/main/",
     },
   },
-  // Add more entries by matching an icon name in src/assets/icons/socials/.
-  // Example: { name: "mail", url: "mailto:you@example.com" }
-  socials: [{ name: "github", url: "https://github.com/ming6ao" }],
+  // Social profile links shown in the header. Empty means no icons.
+  // To restore one, add an entry matching an icon in src/assets/icons/socials/.
+  // Example: { name: "github", url: "https://github.com/you", linkTitle: "Source on GitHub" }
+  socials: [],
   shareLinks: [
     { name: "x", url: "https://x.com/intent/post?url=" },
     {

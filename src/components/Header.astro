@@ -1,11 +1,10 @@
 ---
 import { getRelativeLocaleUrl } from "astro:i18n";
-import IconSunHigh from "@/assets/icons/IconSunHigh.svg";
-import IconMoon from "@/assets/icons/IconMoon.svg";
+import Socials from "./Socials.astro";
 import { useTranslations } from "@/i18n";
 import config from "@/config";
 
-const { site, features } = config;
+const { site } = config;
 
 const locale = Astro.currentLocale ?? config.site.lang;
 const t = useTranslations(locale);
@@ -21,7 +20,7 @@ const t = useTranslations(locale);
 
 <header class="app-layout">
   <div
-    class="border-border bg-background flex items-center justify-between border-b py-4 sm:py-6"
+    class="border-border bg-background flex items-center gap-2 border-b py-4 sm:py-6"
   >
     <a
       href={getRelativeLocaleUrl(locale, "")}
@@ -29,22 +28,7 @@ const t = useTranslations(locale);
     >
       {site.title}
     </a>
-    {
-      features.lightAndDarkMode && (
-        <nav class="flex items-center">
-          <button
-            id="theme-btn"
-            class="focus-outline hover:[&>svg]:stroke-accent relative size-8 p-4"
-            title={t.a11y.toggleTheme}
-            aria-label="auto"
-            aria-live="polite"
-          >
-            <IconMoon class="absolute top-[50%] left-[50%] translate-[-50%] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
-            <IconSunHigh class="absolute top-[50%] left-[50%] translate-[-50%] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
-          </button>
-        </nav>
-      )
-    }
+    <Socials />
   </div>
 </header>
 

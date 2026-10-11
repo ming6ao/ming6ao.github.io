@@ -97,21 +97,16 @@ const rssHref = getRelativeLocaleUrl(
     }
 
     <!--
-      Inline FOUC-prevention script: sets data-theme on <html> before
-      the browser paints. Runs synchronously, no defer/async.
+      Inline FOUC-prevention script: pins the light theme on <html>
+      before the browser paints. Runs synchronously, no defer/async.
     -->
     <script is:inline>
       (function () {
-        const stored = localStorage.getItem("theme");
-        const prefersDark = window.matchMedia(
-          "(prefers-color-scheme: dark)"
-        ).matches;
-        const theme = stored ?? (prefersDark ? "dark" : "light");
         const root = document.firstElementChild;
-        root?.setAttribute("data-theme", theme);
-        root?.classList.toggle("dark", theme === "dark");
+        root?.setAttribute("data-theme", "light");
+        root?.classList.remove("dark");
         // Expose value so theme.ts can skip re-detection.
-        window.__theme = { value: theme };
+        window.__theme = { value: "light" };
       })();
     </script>
 
