@@ -5,8 +5,7 @@ export default defineAstroPaperConfig({
     // User site served at the domain root, so no base path is needed.
     url: "https://ming6ao.github.io",
     title: "ming6ao",
-    description:
-      "Technical writing on artificial intelligence, machine learning, and the systems that run them.",
+    description: "Writing on machine learning and the systems that run it.",
     author: "Ming Gao",
     profile: "https://github.com/ming6ao",
     ogImage: "default-og.jpg",
@@ -29,10 +28,16 @@ export default defineAstroPaperConfig({
       url: "https://github.com/ming6ao/ming6ao.github.io/edit/main/",
     },
   },
-  // Social profile links shown in the header. Empty means no icons.
-  // To restore one, add an entry matching an icon in src/assets/icons/socials/.
+  // Social profile links shown in the header.
+  // Each name must match an icon in src/assets/icons/socials/.
   // Example: { name: "github", url: "https://github.com/you", linkTitle: "Source on GitHub" }
-  socials: [],
+  socials: [
+    {
+      name: "x",
+      url: "https://x.com/ming0gao",
+      linkTitle: "Ming Gao on X",
+    },
+  ],
   shareLinks: [
     { name: "x", url: "https://x.com/intent/post?url=" },
     {

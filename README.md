@@ -1,6 +1,7 @@
 # ming6ao.github.io
 
-A personal blog for technical writing on artificial intelligence, built with
+A personal blog for writing on machine learning and the systems that run it,
+built with
 [Astro](https://astro.build/) and the [Astro Paper](https://github.com/satnaing/astro-paper)
 theme. Posts are written in Markdown with support for mathematics, highlighted
 code, diagrams, and callouts.
