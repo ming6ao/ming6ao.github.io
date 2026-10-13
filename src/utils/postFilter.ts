@@ -1,16 +1,28 @@
 import type { CollectionEntry } from "astro:content";
 import config from "@/config";
 
+type Post = CollectionEntry<"posts">;
+
 /**
- * Determines whether a post is eligible to be listed/rendered.
- *
- * - Excludes drafts always
- * - In production, excludes scheduled posts until `pubDatetime` minus the configured margin
- * - In dev, always shows non-draft posts to make authoring easier
+ * A post is due when its publish time has passed. In dev, treat every post as
+ * due so that authoring is easy.
  */
-export function postFilter({ data }: CollectionEntry<"posts">) {
-  const isPublishTimePassed =
+function isDue({ data }: Post) {
+  if (import.meta.env.DEV) {
+    return true;
+  }
+  return (
     Date.now() >
-    new Date(data.pubDatetime).getTime() - config.posts.scheduledPostMargin;
-  return !data.draft && (import.meta.env.DEV || isPublishTimePassed);
+    new Date(data.pubDatetime).getTime() - config.posts.scheduledPostMargin
+  );
+}
+
+/** A page is built for every published or unlisted post that is due. */
+export function isBuildable(post: Post) {
+  return post.data.status !== "draft" && isDue(post);
+}
+
+/** Only published posts appear in listings, the feed, and the sitemap. */
+export function isListed(post: Post) {
+  return post.data.status === "published" && isDue(post);
 }

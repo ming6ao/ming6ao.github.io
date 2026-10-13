@@ -2,7 +2,7 @@
 title: "Scaled Dot-Product Attention, Step by Step"
 author: Ming6ao
 pubDatetime: 2026-10-01T19:00:00-07:00
-draft: false
+status: unlisted
 description: "A worked walkthrough of scaled dot-product attention: the math, a small numerical example, and a minimal PyTorch implementation."
 ---
 

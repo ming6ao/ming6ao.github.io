@@ -13,7 +13,7 @@ const posts = defineCollection({
       pubDatetime: z.date(),
       modDatetime: z.date().optional().nullable(),
       title: z.string(),
-      draft: z.boolean().optional(),
+      status: z.enum(["draft", "published", "unlisted"]).default("published"),
       ogImage: image().or(z.string()).optional(),
       description: z.string(),
       canonicalURL: z.string().optional(),

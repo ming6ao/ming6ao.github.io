@@ -2,7 +2,7 @@
 title: "Sampled Softmax: Approximating the Training Loss over a Vocabulary Subset"
 author: Ming6ao
 pubDatetime: 2026-10-10T20:30:00-07:00
-draft: false
+status: published
 description: "How the modded-nanogpt speedrun replaces the full-vocabulary training softmax with a small subset, and why the gradient error stays bounded."
 ---
 

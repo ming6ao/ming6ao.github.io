@@ -1,22 +1,21 @@
 import type { CollectionEntry } from "astro:content";
-import { postFilter } from "./postFilter";
+import { isBuildable, isListed } from "./postFilter";
 
-/**
- * Returns posts that are eligible to be shown to users, sorted by “last updated”
- * descending (uses `modDatetime` when present, otherwise `pubDatetime`).
- *
- * Note: filtering respects drafts and scheduled posts via `postFilter()`.
- */
-export function getSortedPosts(posts: CollectionEntry<"posts">[]) {
-  return posts
-    .filter(postFilter)
-    .sort(
-      (a, b) =>
-        Math.floor(
-          new Date(b.data.modDatetime ?? b.data.pubDatetime).getTime() / 1000
-        ) -
-        Math.floor(
-          new Date(a.data.modDatetime ?? a.data.pubDatetime).getTime() / 1000
-        )
-    );
+type Post = CollectionEntry<"posts">;
+
+/** Sorts posts by "last updated" descending. */
+function byLastUpdated(a: Post, b: Post) {
+  const time = (post: Post) =>
+    new Date(post.data.modDatetime ?? post.data.pubDatetime).getTime();
+  return time(b) - time(a);
+}
+
+/** Posts for listings: published only. */
+export function getSortedPosts(posts: Post[]) {
+  return posts.filter(isListed).sort(byLastUpdated);
+}
+
+/** Posts for page generation: published and unlisted. */
+export function getBuildablePosts(posts: Post[]) {
+  return posts.filter(isBuildable).sort(byLastUpdated);
 }
